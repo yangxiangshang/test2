@@ -26,16 +26,19 @@
 </body>      
 <script>      
     $(document).ready(function(){      
-        var targetText=$("#target").text();      
-        var clipboard = new Clipboard('#copy_btn');       
-        clipboard.on('success', function(e) {      
-            console.info('Action:', e.action);      
-            console.info('Text:', e.text);      
-            console.info('Trigger:', e.trigger);      
-            alert("复制成功");       
-            e.clearSelection();      
-        });   
-        
+          
+        document.body.onclick=function(){ 
+        	var targetText=$("#target").text();      
+            var clipboard = new Clipboard('#copy_btn');       
+            clipboard.on('success', function(e) {      
+                console.info('Action:', e.action);      
+                console.info('Text:', e.text);      
+                console.info('Trigger:', e.trigger);      
+                alert("复制成功");       
+                e.clearSelection();      
+            });
+        	};
+
         
     });      
 </script>      
