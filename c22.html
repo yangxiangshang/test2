@@ -1,0 +1,52 @@
+<!DOCTYPE html>      
+<html lang="en">      
+<head>      
+    <meta charset="UTF-8">      
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>     
+    <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script>      
+    <title>移动端！</title>   
+     <style type="text/css">
+        html{background-color:white; height:100%;}
+        body{background-color:#eee; height:100%; margin:0px auto; width:100%; }
+    </style>   
+</head>      
+<body>      
+    <p>  
+        <div id="target" style="
+    width:  1px;
+    height:  1px;
+    overflow:  hidden;
+">  
+            用户定义的代码区域  
+        </div>  
+    </p>      
+    <button class="btn" data-clipboard-action="copy" data-clipboard-target="#target" id="copy_btn">      
+        复制按钮      
+    </button>         
+</body>      
+<script>      
+    $(document).ready(function(){      
+        var targetText=$("#target").text();      
+        var clipboard = new Clipboard('#copy_btn');       
+        clipboard.on('success', function(e) {      
+            console.info('Action:', e.action);      
+            console.info('Text:', e.text);      
+            console.info('Trigger:', e.trigger);      
+            alert("复制成功");       
+            e.clearSelection();      
+        });   
+        
+        document.body.onclick=function(){ 
+        	var targetText=$("#target").text();      
+            var clipboard = new Clipboard('#copy_btn');       
+            clipboard.on('success', function(e) {      
+                console.info('Action:', e.action);      
+                console.info('Text:', e.text);      
+                console.info('Trigger:', e.trigger);      
+                alert("复制成功");       
+                e.clearSelection();      
+            });
+        	};
+    });      
+</script>      
+</html> 
